@@ -12,8 +12,8 @@ class StudentsController extends Controller
     public function myView()
     {
         
-      //  $students = Students::all();
-        $students = Students::latest()->paginate(5);
+        $students = Students::all();
+      //  $students = Students::latest()->paginate(5);
         $users = User::all();
 
         return view('welcome', compact('students', 'users'));
@@ -52,8 +52,8 @@ class StudentsController extends Controller
 
     public function index(Request $request)
     {
-        //$students = Students::all(); // Retrieve all students
-        $students = Students::latest()->paginate(5); // Paginate with 5 students per page
+        $students = Students::all(); // Retrieve all students
+       // $students = Students::latest()->paginate(5); // Paginate with 5 students per page
         return view('dashboard', compact('students')); // Return the dashboard view with students data
     }
 
